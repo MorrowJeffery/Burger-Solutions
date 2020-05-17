@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Burger Solutions</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	</head>
+	<body>
+		{{{ body }}}
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script>
+	$(document).ready(function() {
+    
+    $(".devour-form").on("submit", function(event) {
+      event.preventDefault();
+  
+      var id = $(this).children(".burger_id").val();
+	  console.log(id);
+      $.ajax({
+        method: "PUT",
+        url: "api/" + id 
+      }).then(function(data) {
+        location.reload();
+      });
+  
+    });
+  });
+  
+	</script>
+	</body>
+</html>
